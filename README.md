@@ -4,7 +4,9 @@ A KISS rss feed parser written in PHP
 ## Requirement
 php 5.3.2 or above
 
-## usage
+## Usage
+
+2 types : 
 
 ### by URL
 For a http(s) remote file (will use curl for https one) 
@@ -17,9 +19,12 @@ For a remote or local file (use file_get_contents)
     $feed = FeedParser::parseFile($path);
     
 ### Tested with
-- youtube rss feed ()
-- wordpress feed
-- atom feed ()
+- youtube rss feed (ex : https://www.youtube.com/feeds/videos.xml?channel_id=_the_channel_id_)
+- wordpress feed (ex : //en.blog.wordpress.com/feed/)
+- blogspot.com (ex : https://account_example.blogspot.com/feeds/posts/default or https://www.blogger.com/feeds/_blod_id_/posts/default)
+- feedburner (ex : http://feeds.feedburner.com/_example_)
+- spip (ex : http://www._website.tld_/spip.php?page=backend)
+- much more
     
 ## What R. S. S. doesn't do
 - caching file
@@ -27,6 +32,8 @@ For a remote or local file (use file_get_contents)
 
 ## Author
 charlyecho <charly@charlyecho.com>
+
+Please give me examples not working in order to improve the stuff =)
 
 ## License
 MIT License
