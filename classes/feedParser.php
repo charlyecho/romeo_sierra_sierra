@@ -159,6 +159,9 @@ class FeedParser {
                 $feed_item->enclosures[] = (string) $m->attributes()["url"];
             }
         }
+        if (isset($data->enclosure)) {
+            $feed_item->enclosures[] = (string)$data->enclosure->attributes()["url"];
+        }
 
         return $feed_item;
     }
