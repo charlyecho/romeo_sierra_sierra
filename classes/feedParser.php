@@ -7,24 +7,57 @@
  */
 class FeedParser {
 
-    public static function parseUrl() {
+    /**
+     * load a remote http(s) file and return the parsed feed
+     *
+     * @param $url
+     * @return Feed
+     */
+    public static function parseUrl($url) {
+        if(strpos($url, "https") === 0) {
+            // curl
+            $options = array(
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HEADER         => false,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_AUTOREFERER    => true,
+                CURLOPT_CONNECTTIMEOUT => 120,
+                CURLOPT_TIMEOUT        => 120,
+                CURLOPT_MAXREDIRS      => 10,
+            );
+            $ch = curl_init( $url );
+            curl_setopt_array( $ch, $options );
+            $content = curl_exec( $ch );
+            curl_close( $ch );
 
+            return self::parse($content);
+        }
+
+
+        return self::parseFile($url);
     }
 
+    /**
+     * load a local or remote file and return the parsed feed
+     *
+     * @param $path
+     * @return Feed
+     */
     public static function parseFile($path) {
-        return self::parse($path);
+        $content = file_get_contents($path);
+        return self::parse($content);
     }
 
     /**
      * parse everything
      *
-     * @param $path
+     * @param $content
      * @return Feed
      */
-    public static function parse($path) {
+    public static function parse($content) {
         $feed = new Feed();
 
-        $data = simplexml_load_file($path, null, LIBXML_NOCDATA);
+        $data = simplexml_load_string($content, null, LIBXML_NOCDATA);
         if ($data === false) {
             return $feed;
         }
