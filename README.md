@@ -7,11 +7,14 @@ php 5.3.2 or above
 ## usage
 
 ### by URL
+For a http(s) remote file (will use curl for https one) 
 
     $feed = FeedParser::parseUrl($url);
     
 ### by File
-    $feed = FeedParser::parseFile($url;
+For a remote or local file (use file_get_contents)
+
+    $feed = FeedParser::parseFile($path);
     
 ### Tested with
 - youtube rss feed ()

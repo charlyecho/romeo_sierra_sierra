@@ -15,7 +15,6 @@ class FeedParser {
      */
     public static function parseUrl($url) {
         if(strpos($url, "https") === 0) {
-            // curl
             $options = array(
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_HEADER         => false,
