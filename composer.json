@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "" : "charlyecho",
-            "rss": "classes"}
+            "" : "classes"
+        }
     }
 }
