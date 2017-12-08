@@ -1,5 +1,5 @@
 <?php
-namespace charlyecho\rss;
+namespace CERss;
 
 /**
  * Created by PhpStorm.
@@ -13,7 +13,7 @@ class FeedParser {
      * load a remote http(s) file and return the parsed feed
      *
      * @param $url
-     * @return Feed
+     * @return \CERss\Feed
      */
     public static function parseUrl($url) {
         if(strpos($url, "https") === 0) {
@@ -42,7 +42,7 @@ class FeedParser {
      * load a local or remote file and return the parsed feed
      *
      * @param $path
-     * @return Feed
+     * @return \CERss\Feed
      */
     public static function parseFile($path) {
         $content = file_get_contents($path);
@@ -53,7 +53,7 @@ class FeedParser {
      * parse everything
      *
      * @param $content
-     * @return Feed
+     * @return \CERss\Feed
      */
     public static function parse($content) {
         $feed = new Feed();
@@ -130,7 +130,7 @@ class FeedParser {
      *
      * @param \SimpleXMLElement $data
      * @param array $namespaces
-     * @return \charlyecho\rss\FeedItem
+     * @return \CERss\FeedItem
      */
     private static function parsRssFeedItem(\SimpleXMLElement $data, array $namespaces = array()) {
         $feed_item = new FeedItem();
@@ -173,7 +173,7 @@ class FeedParser {
      *
      * @param \SimpleXMLElement $data
      * @param array $namespaces
-     * @return FeedItem
+     * @return \CERss\FeedItem
      */
     private static function parsAtomFeedItem(\SimpleXMLElement $data, array $namespaces = array()) {
         $feed_item = new FeedItem();

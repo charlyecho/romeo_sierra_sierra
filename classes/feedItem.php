@@ -1,5 +1,5 @@
 <?php
-namespace charlyecho\rss;
+namespace CERss;
 
 /**
  * Class FeedItem
