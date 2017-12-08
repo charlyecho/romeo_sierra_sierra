@@ -11,5 +11,10 @@
             "name": "charlyecho",
             "email": "charly@charlyecho.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "" : "charlyecho",
+            "rss": "classes"}
+    }
 }
