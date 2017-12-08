@@ -1,7 +1,7 @@
 {
     "name": "charlyecho/romeo_sierra_sierra",
     "description": "RSS and ATOM Feed parser",
-    "keywords": ["rss", "parser", "atom", "xml"],
+    "keywords": ["rss", "parser", "atom", "xm"],
     "minimum-stability": "dev",
     "license": "MIT",
     "require": {
