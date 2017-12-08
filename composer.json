@@ -11,10 +11,5 @@
             "name": "charlyecho",
             "email": "charly@charlyecho.com"
         }
-    ],
-    "autoload": {
-        "psr-0": {
-            "HelloWorld": "classes/"
-        }
-    }
+    ]
 }
