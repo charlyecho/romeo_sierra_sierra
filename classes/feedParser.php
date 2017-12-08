@@ -1,4 +1,6 @@
 <?php
+namespace charlyecho\rss;
+
 /**
  * Created by PhpStorm.
  * User: charly
@@ -126,11 +128,11 @@ class FeedParser {
     /**
      * parse an RSS v1 or v2 item
      *
-     * @param SimpleXMLElement $data
+     * @param \SimpleXMLElement $data
      * @param array $namespaces
-     * @return FeedItem
+     * @return \charlyecho\rss\FeedItem
      */
-    private static function parsRssFeedItem(SimpleXMLElement $data, array $namespaces = array()) {
+    private static function parsRssFeedItem(\SimpleXMLElement $data, array $namespaces = array()) {
         $feed_item = new FeedItem();
         $feed_item->guid = isset($data->guid) ? trim((string) $data->guid) : null;
         $feed_item->title = isset($data->title) ? trim((string) $data->title) : null;
@@ -169,11 +171,11 @@ class FeedParser {
     /**
      * parse an ATOM item
      *
-     * @param SimpleXMLElement $data
+     * @param \SimpleXMLElement $data
      * @param array $namespaces
      * @return FeedItem
      */
-    private static function parsAtomFeedItem(SimpleXMLElement $data, array $namespaces = array()) {
+    private static function parsAtomFeedItem(\SimpleXMLElement $data, array $namespaces = array()) {
         $feed_item = new FeedItem();
         $feed_item->guid = isset($data->id) ? (string) $data->id : null;
         $feed_item->date_modification = isset($data->updated) ? (string) $data->updated : null;

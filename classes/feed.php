@@ -1,4 +1,6 @@
 <?php
+namespace charlyecho\rss;
+
 /**
  * Class Feed
  */
@@ -14,6 +16,6 @@ class Feed {
     public $is_valid = false;
     public $type = null;
 
-    /** @var FeedItem[] $feed_items */
+    /** @var \charlyecho\rss\FeedItem[] $feed_items */
     public $feed_items = array();
 }

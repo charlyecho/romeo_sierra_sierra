@@ -1,4 +1,6 @@
 <?php
+namespace charlyecho\rss;
+
 /**
  * Class FeedItem
  */
