@@ -55,11 +55,25 @@ class FeedParser {
      * @param $content
      * @return \CERss\Feed
      */
-    public static function parse($content) {
+    public static function parse($content, $second_attempt = false) {
         $feed = new Feed();
 
         $data = simplexml_load_string($content, null, LIBXML_NOCDATA);
         if ($data === false) {
+            if ($second_attempt && extension_loaded("tidy")) {
+                $config = array(
+                    'indent' => true,
+                    'clean' => true,
+                    'input-xml'  => true,
+                    'output-xml' => true,
+                    'wrap'       => false
+                );
+
+                $tidy = tidy_parse_string($content, $config, 'utf8');
+                $xml = $tidy->cleanRepair();
+                return self::parse($xml, true);
+            }
+
             return $feed;
         }
 
