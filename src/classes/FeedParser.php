@@ -57,6 +57,7 @@ class FeedParser {
      */
     public static function parse($content, $second_attempt = false) {
         $feed = new Feed();
+        libxml_use_internal_errors(true);
 
         $data = simplexml_load_string($content, null, LIBXML_NOCDATA);
         if ($data === false) {
