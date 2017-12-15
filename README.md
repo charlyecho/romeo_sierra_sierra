@@ -18,6 +18,10 @@ For a remote or local file (use file_get_contents)
 
     $feed = FeedParser::parseFile($path);
     
+### Features
+- parse rss feed
+- insert youtube iframe for youtube feeds 
+
 ### Tested with
 - youtube rss feed (ex : https://www.youtube.com/feeds/videos.xml?channel_id=_the_channel_id_)
 - wordpress feed (ex : //en.blog.wordpress.com/feed/)
