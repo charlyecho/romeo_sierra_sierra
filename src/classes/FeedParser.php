@@ -26,7 +26,7 @@ class FeedParser {
                 CURLOPT_TIMEOUT        => 120,
                 CURLOPT_MAXREDIRS      => 10,
             );
-            $ch = curl_init( $url );
+            $ch = curl_init($url);
             curl_setopt_array( $ch, $options );
             $content = curl_exec( $ch );
             curl_close( $ch );
@@ -128,6 +128,11 @@ class FeedParser {
         foreach($feed->feed_items as $_item) {
             if (!$_item->guid) {
                 $_item->guid = $_item->title."-".$_item->date_modification;
+            }
+
+            if (!$_item->link && $_item->guid && filter_var($_item->guid, FILTER_VALIDATE_URL)) {
+                $_item->link = $_item->guid;
+
             }
 
             if (!$_item->date_publication && $_item->date_modification) {
